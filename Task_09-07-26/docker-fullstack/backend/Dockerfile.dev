@@ -1,0 +1,16 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# copy package files first so this layer gets cached and doesn't
+# re-run npm install every time app code changes
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+# nodemon restarts the server when files change - actual file watching
+# works because docker-compose mounts the source as a volume over this
+CMD ["npx", "nodemon", "src/server.js"]
