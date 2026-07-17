@@ -1,0 +1,1 @@
+{"version":3,"file":"eventLoop.js","sourceRoot":"","sources":["../../src/bugs/eventLoop.ts"],"names":[],"mappings":";;AACA,wCASC;AATD,SAAgB,cAAc;IAE5B,IAAI,KAAK,GAAG,CAAC,CAAC;IAEd,KAAK,IAAI,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,aAAa,EAAE,CAAC,EAAE,EAAE,CAAC;QACvC,KAAK,IAAI,CAAC,CAAC;IACb,CAAC;IAED,OAAO,KAAK,CAAC;AACf,CAAC"}

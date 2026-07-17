@@ -1,0 +1,1 @@
+{"version":3,"file":"cpu.worker.js","sourceRoot":"","sources":["../../src/workers/cpu.worker.ts"],"names":[],"mappings":";;AAAA,6DAAiD;AAGjD,IAAI,KAAK,GAAG,CAAC,CAAC;AAGd,KAAK,IAAI,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,aAAa,EAAE,CAAC,EAAE,EAAE,CAAC;IACvC,KAAK,IAAI,CAAC,CAAC;AACb,CAAC;AAGD,gCAAU,EAAE,WAAW,CAAC,KAAK,CAAC,CAAC"}
