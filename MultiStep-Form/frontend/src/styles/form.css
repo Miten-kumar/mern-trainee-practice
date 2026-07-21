@@ -1,0 +1,79 @@
+.form-group {
+
+  display:flex;
+
+  flex-direction:column;
+
+  margin-bottom:20px;
+
+}
+
+
+
+.form-group label {
+
+  font-weight:600;
+
+  margin-bottom:8px;
+
+}
+
+
+
+.form-group input,
+.form-group select {
+
+  padding:12px;
+
+  border:
+
+  1px solid #ddd;
+
+  border-radius:8px;
+
+  font-size:15px;
+
+}
+
+
+
+.form-group input:focus,
+.form-group select:focus {
+
+  outline:none;
+
+  border-color:#2563eb;
+
+}
+
+
+
+.error {
+
+  color:red;
+
+  font-size:13px;
+
+  margin-top:5px;
+
+}
+
+
+
+.step-container {
+
+  padding:20px;
+
+}
+
+
+
+.navigation {
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-top:30px;
+
+}

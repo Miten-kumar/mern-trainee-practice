@@ -1,0 +1,116 @@
+/* Stepper */
+
+
+.stepper {
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin:30px 0;
+
+}
+
+
+
+.step {
+
+  text-align:center;
+
+  color:#999;
+
+}
+
+
+
+.step span {
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  width:40px;
+
+  height:40px;
+
+  border-radius:50%;
+
+  background:#ddd;
+
+  margin:auto;
+
+}
+
+
+
+.step.active {
+
+  color:#2563eb;
+
+}
+
+
+
+.step.active span {
+
+  background:#2563eb;
+
+  color:white;
+
+}
+
+
+
+/* Progress */
+
+
+.progress-container {
+
+  margin-bottom:20px;
+
+}
+
+
+.progress-bar {
+
+  height:10px;
+
+  background:#e5e7eb;
+
+  border-radius:10px;
+
+  overflow:hidden;
+
+}
+
+
+.progress-fill {
+
+  height:100%;
+
+  background:#2563eb;
+
+  transition:.3s;
+
+}
+
+
+
+/* File Upload */
+
+
+.file-upload {
+
+  border:2px dashed #2563eb;
+
+  padding:25px;
+
+  text-align:center;
+
+  border-radius:10px;
+
+  margin:20px 0;
+
+}
