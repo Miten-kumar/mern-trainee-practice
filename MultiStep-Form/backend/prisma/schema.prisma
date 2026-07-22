@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model Application {
+
+  id Int @id @default(autoincrement())
+
+
+  // Step 1
+
+  firstName String
+
+  lastName String
+
+  email String 
+
+  phone String
+
+  age Int
+
+
+
+  // Step 2
+
+  employmentType String
+
+  companyName String?
+
+  experience Int
+
+  skills Json
+
+
+
+  // Step 3
+
+  portfolioUrl String?
+
+  resume String?
+
+  profileImage String?
+
+
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+}
