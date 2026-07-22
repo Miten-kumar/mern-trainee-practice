@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 24px 28px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+/* progress bar */
+.progress-bar {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.progress-step {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+.progress-step-circle {
+  display: block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #666;
+  margin: 0 auto 4px auto;
+  font-size: 13px;
+}
+
+.progress-step.active .progress-step-circle {
+  background: #2563eb;
+  color: #fff;
+}
+
+.progress-step.done .progress-step-circle {
+  background: #16a34a;
+  color: #fff;
+}
+
+.progress-step.active .progress-step-label {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+/* fields */
+.field {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.field input,
+.field select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.field input[aria-invalid='true'] {
+  border-color: #dc2626;
+}
+
+fieldset.field {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+fieldset legend {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0 4px;
+}
+
+.radio-group label {
+  display: block;
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 13px;
+  margin: 4px 0 0 0;
+}
+
+.error-banner {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.hint {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 10px 0;
+}
+
+/* certifications */
+.certification-item {
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  background: #fafafa;
+}
+
+/* buttons */
+.btn {
+  padding: 9px 18px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #222;
+}
+
+.btn-danger {
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* review step */
+.review-section {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.review-section p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.success-message {
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* visually hidden but still readable by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* respect keyboard focus visibility */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
