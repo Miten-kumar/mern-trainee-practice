@@ -1,0 +1,140 @@
+.users-container {
+
+    min-height: 100vh;
+
+    padding: 40px;
+
+    background: #f5f7fb;
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+.users-title {
+
+    text-align: center;
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+    color: #1f2937;
+
+}
+
+
+/* Error Message */
+
+.users-error {
+
+    text-align: center;
+
+    color: #dc2626;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* Retry Button */
+
+.retry-btn {
+
+    display: block;
+
+    margin: 0 auto 30px;
+
+    padding: 10px 25px;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.retry-btn:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+
+/* Users List */
+
+.users-list {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+
+/* User Card */
+
+.user-card {
+
+    background: white;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.1);
+
+    transition: transform 0.3s;
+
+}
+
+
+.user-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+.user-card h3 {
+
+    margin: 0 0 10px;
+
+    color: #111827;
+
+    font-size: 22px;
+
+}
+
+
+.user-card p {
+
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 16px;
+
+}

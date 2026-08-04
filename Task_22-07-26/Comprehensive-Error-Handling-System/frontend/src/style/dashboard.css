@@ -1,0 +1,56 @@
+.dashboard-container {
+
+    min-height: 100vh;
+
+    padding: 40px;
+
+    background: #f5f7fb;
+
+}
+
+
+.dashboard-container h1 {
+
+    text-align: center;
+
+    font-size: 32px;
+
+    color: #1f2937;
+
+    margin-bottom: 30px;
+
+}
+
+
+.dashboard-card {
+
+    background: white;
+
+    padding: 25px;
+
+    margin: 20px auto;
+
+    max-width: 600px;
+
+    border-radius: 12px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,0.1);
+
+}
+
+
+.dashboard-card h2 {
+
+    color:#2563eb;
+
+}
+
+
+.dashboard-card p {
+
+    color:#6b7280;
+
+    font-size:18px;
+
+}
