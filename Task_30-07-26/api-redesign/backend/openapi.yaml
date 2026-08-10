@@ -1,0 +1,316 @@
+openapi: 3.0.3
+info:
+  title: Task API
+  version: "2.0"
+  description: |
+    A small task management API, built to demonstrate REST best
+    practices: proper HTTP methods/status codes, HATEOAS links,
+    consistent error responses, and API versioning.
+
+    **v1 (`/api/v1/tasks`) is deprecated.** It returns a `Deprecation`
+    and `Sunset` header on every response, and a `Link` header pointing
+    here. New integrations should use v2.
+servers:
+  - url: http://localhost:4000
+    description: Local development
+
+tags:
+  - name: Tasks
+    description: Task management (v2)
+
+paths:
+  /api/v2/tasks:
+    get:
+      tags: [Tasks]
+      summary: List tasks
+      description: Returns a paginated, filterable list of tasks with HATEOAS links.
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 50
+        - name: status
+          in: query
+          description: Filter by task status
+          schema:
+            $ref: '#/components/schemas/TaskStatus'
+      responses:
+        '200':
+          description: A page of tasks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskCollection'
+    post:
+      tags: [Tasks]
+      summary: Create a task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskInput'
+      responses:
+        '201':
+          description: Task created
+          headers:
+            Location:
+              description: URL of the newly created task
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Validation failed
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+
+  /api/v2/tasks/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      tags: [Tasks]
+      summary: Get a single task
+      responses:
+        '200':
+          description: The task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: Task not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags: [Tasks]
+      summary: Replace a task (full update)
+      description: All fields are required, same as creating - anything not sent falls back to a default rather than being left as-is. Use PATCH if you only want to change a few fields.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskInput'
+      responses:
+        '200':
+          description: Updated task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Validation failed
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Task not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    patch:
+      tags: [Tasks]
+      summary: Partially update a task
+      description: Only the fields included in the request body are changed.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskPatchInput'
+      responses:
+        '200':
+          description: Updated task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Validation failed
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Task not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    delete:
+      tags: [Tasks]
+      summary: Delete a task
+      responses:
+        '204':
+          description: Deleted, no content returned
+        '404':
+          description: Task not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+
+components:
+  schemas:
+    TaskStatus:
+      type: string
+      enum: [pending, in-progress, completed]
+    TaskPriority:
+      type: string
+      enum: [low, medium, high]
+
+    TaskInput:
+      type: object
+      required: [title]
+      properties:
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        priority:
+          $ref: '#/components/schemas/TaskPriority'
+        dueDate:
+          type: string
+          format: date-time
+          nullable: true
+
+    TaskPatchInput:
+      type: object
+      description: Same fields as TaskInput, but none of them are required - send only what you want to change.
+      properties:
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        priority:
+          $ref: '#/components/schemas/TaskPriority'
+        dueDate:
+          type: string
+          format: date-time
+          nullable: true
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+        method:
+          type: string
+
+    Task:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+            title:
+              type: string
+            description:
+              type: string
+            status:
+              $ref: '#/components/schemas/TaskStatus'
+            priority:
+              $ref: '#/components/schemas/TaskPriority'
+            dueDate:
+              type: string
+              format: date-time
+              nullable: true
+            createdAt:
+              type: string
+              format: date-time
+            _links:
+              type: object
+              properties:
+                self:
+                  $ref: '#/components/schemas/Link'
+                update:
+                  $ref: '#/components/schemas/Link'
+                patch:
+                  $ref: '#/components/schemas/Link'
+                delete:
+                  $ref: '#/components/schemas/Link'
+                collection:
+                  $ref: '#/components/schemas/Link'
+
+    TaskCollection:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            tasks:
+              type: array
+              items:
+                $ref: '#/components/schemas/Task'
+        _links:
+          type: object
+          properties:
+            self:
+              $ref: '#/components/schemas/Link'
+            first:
+              $ref: '#/components/schemas/Link'
+            prev:
+              $ref: '#/components/schemas/Link'
+            next:
+              $ref: '#/components/schemas/Link'
+            last:
+              $ref: '#/components/schemas/Link'
+        page:
+          type: integer
+        limit:
+          type: integer
+        totalItems:
+          type: integer
+        totalPages:
+          type: integer
+
+    ProblemDetails:
+      type: object
+      description: RFC 7807 problem details - the shape of every error response in v2.
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+        errors:
+          type: array
+          description: Only present for validation errors (400)
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string

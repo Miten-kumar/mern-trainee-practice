@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Queue Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <h1>Job Queue Dashboard</h1>
+      <p class="hint">
+        Just a plain HTML page hitting the API directly - no build step, no framework, since the
+        actual point of this project is the backend queue system.
+      </p>
+
+      <div class="panels">
+        <section class="panel">
+          <h2>Send Email</h2>
+          <form id="email-form">
+            <label>To <input type="email" name="to" required /></label>
+            <label>Subject <input type="text" name="subject" required /></label>
+            <label>Body <textarea name="body" required></textarea></label>
+            <label>
+              Priority
+              <select name="priority">
+                <option value="normal">Normal</option>
+                <option value="high">High</option>
+                <option value="low">Low</option>
+              </select>
+            </label>
+            <button type="submit">Queue email</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Process Image</h2>
+          <form id="image-form">
+            <label>Image URL <input type="text" name="imageUrl" required value="https://example.com/photo.jpg" /></label>
+            <label>
+              Priority
+              <select name="priority">
+                <option value="normal">Normal</option>
+                <option value="high">High</option>
+                <option value="low">Low</option>
+              </select>
+            </label>
+            <button type="submit">Queue image job</button>
+          </form>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h2>Tracked Jobs</h2>
+        <p class="hint">Auto-refreshes every 1.5s until each job finishes or fails.</p>
+        <ul id="job-list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Queue Stats</h2>
+        <div class="stats-grid">
+          <div>
+            <h3>Email</h3>
+            <pre id="email-stats">-</pre>
+          </div>
+          <div>
+            <h3>Image</h3>
+            <pre id="image-stats">-</pre>
+          </div>
+        </div>
+        <button id="refresh-stats">Refresh stats</button>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
