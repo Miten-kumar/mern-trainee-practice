@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Checkout {
+  id              String         @id @default(cuid())
+
+  cartId          String
+
+  status          CheckoutStatus @default(CART)
+
+  shippingAddress Json?
+
+  paymentStatus   PaymentStatus  @default(PENDING)
+
+  orderId         String?
+
+  retryCount      Int            @default(0)
+
+  errorMessage    String?
+
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+enum CheckoutStatus {
+  CART
+  SHIPPING
+  PAYMENT
+  PAYMENT_ERROR
+  CONFIRMATION
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  SUCCESS
+  FAILED
+}
