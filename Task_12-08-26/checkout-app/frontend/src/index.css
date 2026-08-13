@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0F1115;
+  --surface: #171A21;
+  --surface-2: #1F232C;
+  --border: #282D38;
+  --text: #F2F0EB;
+  --text-muted: #8A8F9C;
+  --accent: #FFB84D;
+  --accent-dim: #C98A2E;
+  --success: #4ADE80;
+  --error: #F87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.bg-noise {
+  background-image: radial-gradient(circle at 15% 10%, rgba(255,184,77,0.06), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(125,211,252,0.05), transparent 45%);
+}
+
+::selection {
+  background: var(--accent);
+  color: #1a1305;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+input::placeholder {
+  color: #565b68;
+}
+
+@keyframes pulse-node {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,77,0.45); }
+  50% { box-shadow: 0 0 0 6px rgba(255,184,77,0); }
+}
+.animate-pulse-node {
+  animation: pulse-node 1.8s ease-in-out infinite;
+}
+
+@keyframes flash-edge {
+  0% { opacity: 0.15; }
+  30% { opacity: 1; }
+  100% { opacity: 0.15; }
+}
+.animate-flash-edge {
+  animation: flash-edge 1s ease-out;
+}
+
+@keyframes log-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-log-in {
+  animation: log-in 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-node, .animate-flash-edge, .animate-log-in {
+    animation: none !important;
+  }
+}
+
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
