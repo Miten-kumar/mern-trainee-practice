@@ -1,0 +1,13 @@
+node_modules
+# Keep environment variables out of version control
+.env
+node_modules
+dist
+.env
+.git
+coverage
+package-lock.json
+vite.config.ts
+eslint.config.ts
+
+/src/generated/prisma
