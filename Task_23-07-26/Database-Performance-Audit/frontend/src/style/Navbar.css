@@ -1,0 +1,57 @@
+.navbar {
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:20px 50px;
+
+  background:#1e293b;
+
+  color:white;
+
+}
+
+
+.navbar h2 {
+  color:#ffffff; 
+  font-size:24px;
+
+}
+
+
+.nav-links {
+
+  display:flex;
+
+  gap:35px;   /* Dashboard aur Users ke beech space */
+
+  align-items:center;
+
+}
+
+
+.nav-links a {
+
+  color:white;
+
+  font-size:16px;
+
+  padding:8px 12px;
+
+  border-radius:6px;
+
+  transition:0.3s ease;
+
+}
+
+
+.nav-links a:hover {
+
+  color:#38bdf8;
+
+  background:#334155;
+
+}

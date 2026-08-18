@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ApplicationError {
+  id            Int      @id @default(autoincrement())
+  message       String
+  stack         String?
+  level         String   @default("error")
+  method        String?
+  route         String?
+  statusCode    Int?
+  correlationId String?
+  userId        Int?
+  metadata      Json?
+  createdAt     DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([correlationId])
+  @@index([statusCode])
+  @@index([level])
+}
+
+model PerformanceMetric {
+  id            Int      @id @default(autoincrement())
+  method        String
+  route         String
+  statusCode    Int
+  responseTime  Float
+  correlationId String?
+  createdAt     DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([route])
+  @@index([statusCode])
+}
+
+model AlertEvent {
+  id            Int      @id @default(autoincrement())
+  type          String
+  severity      String
+  message       String
+  threshold     Float?
+  actualValue   Float?
+  correlationId String?
+  resolved      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  resolvedAt    DateTime?
+
+  @@index([createdAt])
+  @@index([severity])
+  @@index([resolved])
+}

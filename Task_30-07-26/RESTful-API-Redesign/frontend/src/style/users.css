@@ -1,0 +1,339 @@
+/* =========================
+   Global Container
+========================= */
+
+.users-container {
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:30px;
+
+    min-height:100vh;
+
+    background:#f8fafc;
+
+    font-family:
+    Arial,
+    sans-serif;
+
+}
+
+/* =========================
+   Page Header
+========================= */
+
+.page-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.page-header h1 {
+
+    font-size:32px;
+
+    color:#1f2937;
+
+}
+
+/* =========================
+   Common Buttons
+========================= */
+
+.btn {
+
+    padding:9px 16px;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:0.3s;
+
+}
+
+.btn:hover {
+
+    opacity:0.85;
+
+}
+
+.btn-primary {
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.btn-view {
+
+    background:#0284c7;
+
+    color:white;
+
+}
+
+.btn-edit {
+
+    background:#f59e0b;
+
+    color:white;
+
+}
+
+.btn-delete {
+
+    background:#dc2626;
+
+    color:white;
+
+}
+
+.btn-cancel {
+
+    background:#6b7280;
+
+    color:white;
+
+}
+/* =========================
+   User Table
+========================= */
+
+.table-container {
+
+    width:100%;
+
+    margin-top:20px;
+
+}
+
+.table-title {
+
+    font-size:26px;
+
+    margin-bottom:20px;
+
+    color:#1f2937;
+
+}
+
+.user-table {
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:
+    0 4px 15px rgba(0,0,0,0.1);
+}
+
+.user-table th {
+    background:#2563eb;
+    color:white;
+    padding:15px;
+    text-align:left;
+    font-size:15px;
+}
+
+.user-table td {
+    padding:14px 15px;
+    border-bottom:
+    1px solid #e5e7eb;
+    color:#374151;
+}
+
+.user-table tr:hover {
+    background:#f8fafc;
+}
+
+.action-cell {
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+/* =========================
+   User Form
+========================= */
+
+.user-form {
+    margin-top:35px;
+    padding:25px;
+    max-width:500px;
+    background:white;
+    border-radius:10px;
+    box-shadow:
+    0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-title {
+    margin-bottom:20px;
+    color:#1f2937;
+    font-size:24px;
+}
+
+.user-input {
+    width:100%;
+    padding:12px 14px;
+    margin-bottom:15px;
+    border:
+    1px solid #d1d5db;
+    border-radius:6px;
+    font-size:15px;
+    outline:none;
+}
+
+.user-input:focus {
+    border-color:#2563eb;
+
+}
+
+.form-actions {
+    display:flex;
+    gap:10px;
+}
+
+/* =========================
+   User Details Page
+========================= */
+
+.details-container {
+    display:flex;
+    justify-content:center;
+    padding:40px;
+    min-height:100vh;
+    background:#f8fafc;
+}
+
+.details-card {
+    width:600px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.1);
+}
+
+.details-title {
+    text-align:center;
+    margin-bottom:30px;
+    color:#1f2937;
+}
+
+.details-info {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.details-info h3 {
+    margin-bottom:5px;
+    color:#374151;
+}
+
+.details-info p {
+    margin:0;
+    padding:12px;
+    background:#f1f5f9;
+    border-radius:6px;
+    color:#475569;
+}
+
+/* =========================
+   HATEOAS Links
+========================= */
+
+.actions-title {
+    margin-top:30px;
+    margin-bottom:15px;
+    color:#1f2937;
+}
+
+.hateoas-container {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.hateoas-link {
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:12px;
+    background:#f1f5f9;
+    border-radius:8px;
+}
+
+.link-url {
+    color:#475569;
+    font-size:14px;
+    word-break:break-all;
+}
+
+/* =========================
+   Loader
+========================= */
+
+.loader {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:200px;
+    font-size:20px;
+    color:#2563eb;
+}
+
+/* =========================
+   Error Message
+========================= */
+
+.error-box {
+    padding:20px;
+    margin:20px;
+    background:#fee2e2;
+    color:#991b1b;
+    border-radius:8px;
+    text-align:center;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media(max-width:768px){
+    .users-container {
+        padding:15px;
+    }
+    .page-header {
+        flex-direction:column;
+        gap:15px;
+        align-items:flex-start;
+    }
+
+    .user-table {
+        display:block;
+        overflow-x:auto;
+    }
+
+    .action-cell {
+        flex-direction:column;
+    }
+
+    .details-card {
+        width:100%;
+    }
+}

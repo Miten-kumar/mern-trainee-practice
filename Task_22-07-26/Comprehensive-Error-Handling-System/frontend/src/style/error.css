@@ -1,0 +1,75 @@
+.error-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f8f9fa;
+
+}
+
+
+
+.error-card{
+
+    background:white;
+
+    width:400px;
+
+    padding:40px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+
+.error-card h2{
+
+    color:#dc2626;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.error-card p{
+
+    color:#666;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.retry-btn{
+
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:10px 25px;
+
+    border-radius:6px;
+
+}
+
+
+
+.retry-btn:hover{
+
+    background:#1d4ed8;
+
+}
