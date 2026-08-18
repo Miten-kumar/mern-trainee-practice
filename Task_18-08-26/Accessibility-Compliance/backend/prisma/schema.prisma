@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AccessibilityPreference {
+  id                        Int      @id @default(autoincrement())
+  highContrast              Boolean  @default(false)
+  reducedMotion             Boolean  @default(false)
+  screenReaderAnnouncements Boolean  @default(true)
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+}
