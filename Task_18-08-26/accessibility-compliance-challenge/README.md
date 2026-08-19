@@ -84,10 +84,5 @@ using only the keyboard (no mouse) for both passes. The specific things I checke
 
 - I used a native `<button>` for every clickable control instead of styled `<div>`s — it's the single biggest accessibility win for the least effort, since buttons get focusability, keyboard activation, and correct AT semantics for free.
 - The live region is intentionally shared/global rather than one-per-component. Multiple competing live regions on a page tend to cause screen readers to either announce things out of order or drop announcements entirely.
-- I portalled the modal to `document.body` (instead of rendering it inside the app root) so that marking the app root `inert` while the modal is open doesn't accidentally hide the modal itself too.
+- I portalled the modal to `document.body` (instead of rendering it inside the app root) so that marking the app root `inert` while the modal is open doesn't accidentally hide the modal itself too  .
 
-## If I had more time
-
-- Add a proper e2e pass with Playwright + axe-core against the running app, not just component-level tests.
-- Persist the backend to a real database and add auth.
-- Add a dark mode token set and re-verify contrast for it separately — dark themes often need different ratios to feel right even when they technically pass.
