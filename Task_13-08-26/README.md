@@ -186,6 +186,3 @@ single HTTP request instead of solving it.
   → authenticated mutations on both APIs, `npm run perf`), but there's no
   automated test suite yet
 
-## License
-
-MIT — do whatever you want with it.
