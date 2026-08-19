@@ -1,0 +1,25 @@
+{
+  "name": "blogapi-backend",
+  "version": "1.0.0",
+  "description": "Same domain, two APIs - REST and GraphQL - for a side by side comparison",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "perf": "node scripts/perf-test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/server": "^5.5.1",
+    "@as-integrations/express5": "^1.1.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dataloader": "^2.2.2",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "graphql": "^16.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "nanoid": "^3.3.7"
+  }
+}
