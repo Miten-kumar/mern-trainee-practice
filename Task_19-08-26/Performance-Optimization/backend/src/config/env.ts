@@ -1,0 +1,30 @@
+import "dotenv/config";
+
+import { z } from "zod";
+
+const envSchema = z.object({
+  NODE_ENV: z
+    .enum(["development", "test", "production"])
+    .default("development"),
+
+  PORT: z.coerce
+    .number()
+    .int()
+    .positive()
+    .default(5000),
+
+  DATABASE_URL: z
+    .string()
+    .min(1, "DATABASE_URL is required"),
+
+  FRONTEND_URL: z
+    .string()
+    .url("FRONTEND_URL must be a valid URL"),
+
+  FRONTEND_PREVIEW_URL: z
+    .string()
+    .url("FRONTEND_PREVIEW_URL must be a valid URL")
+    .default("http://localhost:4173"),
+});
+
+export const env = envSchema.parse(process.env);

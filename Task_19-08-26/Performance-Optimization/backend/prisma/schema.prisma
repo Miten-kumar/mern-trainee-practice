@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PerformanceMetric {
+  id          String   @id @default(cuid())
+  metric      String
+  value       Float
+  rating      String
+  page        String
+  device      String?
+  connection  String?
+  userAgent   String?
+  createdAt   DateTime @default(now())
+
+  @@index([metric])
+  @@index([createdAt])
+  @@index([page])
+}
