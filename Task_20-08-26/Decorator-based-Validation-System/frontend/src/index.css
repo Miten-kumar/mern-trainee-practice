@@ -1,0 +1,319 @@
+/* =========================
+   Global Reset
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================
+   Main Container
+========================= */
+
+.container {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  padding: 40px 0 60px;
+}
+
+/* =========================
+   Header
+========================= */
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.page-header p {
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* =========================
+   Form
+========================= */
+
+.user-form {
+  width: 100%;
+  max-width: 520px;
+
+  margin-bottom: 36px;
+  padding: 24px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.user-form h2 {
+  margin: 0 0 24px;
+
+  font-size: 1.4rem;
+}
+
+/* =========================
+   Form Group
+========================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 11px 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #111827;
+
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+}
+
+.form-group input:hover {
+  border-color: #9ca3af;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* =========================
+   Button
+========================= */
+
+.user-form button {
+  width: 100%;
+
+  padding: 11px 16px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  font-weight: 600;
+
+  transition:
+    background 0.15s ease,
+    transform 0.1s ease;
+}
+
+.user-form button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.user-form button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.user-form button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 2px;
+}
+
+.user-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   Error Message
+========================= */
+
+.error {
+  white-space: pre-line;
+
+  margin: 15px 0;
+  padding: 12px 14px;
+
+  border: 1px solid #fecaca;
+  border-radius: 7px;
+
+  background: #fef2f2;
+  color: #991b1b;
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   Success Message
+========================= */
+
+.success {
+  margin: 15px 0;
+  padding: 12px 14px;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 7px;
+
+  background: #f0fdf4;
+  color: #166534;
+
+  font-size: 0.9rem;
+}
+
+/* =========================
+   Users Section
+========================= */
+
+.users {
+  margin-top: 36px;
+}
+
+.users > h2 {
+  margin: 0 0 18px;
+
+  font-size: 1.4rem;
+}
+
+/* =========================
+   User List
+========================= */
+
+.user-list {
+  display: grid;
+  gap: 14px;
+}
+
+.user-card {
+  padding: 18px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.user-card h3 {
+  margin: 0 0 12px;
+
+  font-size: 1.1rem;
+  color: #111827;
+}
+
+.user-card p {
+  margin: 6px 0;
+
+  color: #4b5563;
+}
+
+.user-card strong {
+  color: #374151;
+}
+
+.user-card small {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #9ca3af;
+  font-size: 0.75rem;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 640px) {
+  .container {
+    width: 94%;
+    padding-top: 24px;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .user-form {
+    padding: 18px;
+  }
+}
+
+/* =========================
+   Reduced Motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
